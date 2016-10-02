@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :movies
+  resources :movies do
+    resources :actors
+  end
 
   root 'welcome#index'
 
