@@ -27,7 +27,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 
 # frontend styling
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+
 
 # react frontend
 gem 'react-rails', '~> 1.0'

@@ -5,6 +5,10 @@ this.Movies = React.createClass({
     };
   },
 
+  addMovie: function(movie) {
+    movies = this.state.movi
+  }
+
   render: function() {
     var items = this.state.movies;
 
