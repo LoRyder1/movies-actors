@@ -1,7 +1,14 @@
-class ActorsController < ApplicationController
+  class ActorsController < ApplicationController
   def create
-    @movie = Movie.find(params[:mvoie_id])
+    @movie = Movie.find(params[:movie_id])
     @actor = @movie.actors.create(actor_params)
+    redirect_to movie_path(@movie)
+  end
+
+  def destroy
+    @movie = Movie.find(params[:movie_id])
+    @actor = @movie.actors.find(params[:id])
+    @actor.destroy
     redirect_to movie_path(@movie)
   end
 

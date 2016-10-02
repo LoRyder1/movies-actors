@@ -8,6 +8,7 @@ class MoviesController < ApplicationController
   end
 
   def new
+    @movie = Movie.new
   end
 
   def edit
@@ -15,8 +16,9 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.new params[:movie]    
+    @movie = Movie.new(movie_params)
 
+    # raise @movie.inspect
     if @movie.save
       redirect_to @movie
     else

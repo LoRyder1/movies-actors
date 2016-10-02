@@ -9,30 +9,11 @@
 </p>
 
 <h2>Actors</h2>
-<% @movie.actors.each do |actor| %>
-  <p>
-    <strong>Actor:</strong>
-    <%= actor.firstname %>
-  </p>
-  <p>
-    <%= actor.lastname %>
-  </p>
-<% end %>
+<%= render @movie.actors %>
 
 <h2>Add a actor:</h2>
-<%= form_for ([@movie, @movie.actors.build]) do |f| %>
-  <p>
-    <%= f.label :firstname %>
-    <%= f.text_field :firstname %>
-  </p>
-  <p>
-    <% f.label :lastname %>
-    <% f.text_field :lastname %>
-  </p>
-  <p>
-    <% f.submit %>
-  </p>
-<% end %>
+<%= render 'actors/form' %>
+
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>

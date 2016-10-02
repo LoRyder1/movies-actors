@@ -1,0 +1,12 @@
+  <p>
+    <strong>Actor:</strong>
+    <%= actor.firstname %>
+  </p>
+  <p>
+    <%= actor.lastname %>
+  </p>
+  <p>
+    <%= link_to 'Destroy Actor', [actor.movie, actor],
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+  </p>
