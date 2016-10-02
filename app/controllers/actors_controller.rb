@@ -5,5 +5,8 @@ class ActorsController < ApplicationController
     redirect_to movie_path(@movie)
   end
 
-
+  private
+  def actor_params
+    params.require(:actor).permit(:firstname, :lastname)
+  end
 end
