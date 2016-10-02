@@ -1,11 +1,13 @@
 this.Movies = React.createClass({
   getInitialState: function() {
     return {
-      garages: this.props.data
+      movies: this.props.data
     };
   },
 
   render: function() {
+    var items = this.state.movies;
+
     return (
       <div className='movies'>
         <h2 className='name'>Movies</h2>
@@ -18,8 +20,11 @@ this.Movies = React.createClass({
             <th>Title</th>
             <th>Text</th>
           </tr>
-          </head>
+          </thead>
           <tbody>
+          {items.map(function(movie, i) {
+            return <Movie movie={movie} key={i} />
+          })}
           </tbody>
         </table>
       </div>
