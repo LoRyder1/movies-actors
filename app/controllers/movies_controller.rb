@@ -18,11 +18,10 @@ class MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
 
-    # raise @movie.inspect
     if @movie.save
-      redirect_to @movie
+      render json: @movie
     else
-      render 'new'
+      render json: @movie.errors, status: :unprocessable_entity
     end
   end
 

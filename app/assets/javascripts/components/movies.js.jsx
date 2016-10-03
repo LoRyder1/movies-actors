@@ -5,9 +5,17 @@ this.Movies = React.createClass({
     };
   },
 
+  getDefaultProps: function() {
+    return { movies: [] };
+  },
+
   addMovie: function(movie) {
-    movies = this.state.movi
-  }
+    movies = this.state.movies.slice();
+    movies.push(movie);
+    this.setState({movies: movies});
+  },
+
+
 
   render: function() {
     var items = this.state.movies;
@@ -23,11 +31,12 @@ this.Movies = React.createClass({
           <tr>
             <th>Title</th>
             <th>Text</th>
+            <th>Actions</th>
           </tr>
           </thead>
           <tbody>
           {items.map(function(movie, i) {
-            return <Movie movie={movie} key={i} />
+            return <Movie movie={movie} key={i} handleDeleteMovie={this.deleteMovie}/>
           })}
           </tbody>
         </table>
@@ -35,3 +44,4 @@ this.Movies = React.createClass({
       )
   }
 })
+

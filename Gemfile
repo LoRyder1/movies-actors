@@ -28,8 +28,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 # frontend styling
 gem 'bootstrap-sass'
-gem 'autoprefixer-rails'
-
 
 # react frontend
 gem 'react-rails', '~> 1.0'
