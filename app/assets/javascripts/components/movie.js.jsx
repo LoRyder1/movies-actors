@@ -12,7 +12,7 @@ this.Movie = React.createClass({
 
     request.done( () => {
       this.props.handleDeleteMovie(this.props.movie)
-    })
+    });
   },
 
   movieRow: function() {
