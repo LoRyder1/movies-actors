@@ -29,9 +29,9 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
 
     if @movie.update(movie_params)
-      redirect_to @movie
+      render json: @movie
     else
-      render 'edit'
+      render json: @movie.errors, status: :unprocessable_entity
     end
   end
 

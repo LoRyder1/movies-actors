@@ -50,8 +50,8 @@ this.Movie = React.createClass({
           <input className="form-control" type="text" defaultValue={propMovie.text} ref="text" />
         </td>
         <td>
-          <a className="btn btn default" onClick={this.handleEdit}>Update</a>
-          <a className="btn btn-danger" onClick={this.handleToggle}>Cancle</a>
+          <a className="btn btn-default" onClick={this.handleEdit}>Update</a>
+          <a className="btn btn-danger" onClick={this.handleToggle}>Cancel</a>
         </td>
       </tr>
     )

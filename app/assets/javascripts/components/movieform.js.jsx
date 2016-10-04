@@ -4,7 +4,7 @@ this.MovieForm = React.createClass({
   },
 
   valid: function() {
-    returh this.state.title && this.state.text
+    return this.state.title && this.state.text
   },
 
   handleChange: function(e) {
