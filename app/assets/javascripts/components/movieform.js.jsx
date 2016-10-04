@@ -3,6 +3,10 @@ this.MovieForm = React.createClass({
     return { title: '', text: ''};
   },
 
+  valid: function() {
+    returh this.state.title && this.state.text
+  },
+
   handleChange: function(e) {
     var change = {};
     var targetName = e.target.name;
@@ -10,9 +14,7 @@ this.MovieForm = React.createClass({
     this.setState(change);
   },
 
-
   handleSubmit: function(e) {
-
     var request = $.ajax({
       method: 'POST',
       url: "/movies",
@@ -20,6 +22,7 @@ this.MovieForm = React.createClass({
       data: {movie: this.state}
     });
     
+    // An arrow function expression lexically binds the "this" value. Arrow fxns are anonymous
     request.done( (data) => {
       this.props.handleNewMovie(data);
       this.setState(this.getInitialState());
