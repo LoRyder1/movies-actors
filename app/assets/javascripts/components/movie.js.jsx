@@ -3,6 +3,10 @@ this.Movie = React.createClass({
     return { edit: false }
   },
 
+  handleToggle: function(e) {
+    this.setState({edit: !this.state.edit });
+  },
+
   handleDelete: function(e) {
     var request = $.ajax({
       method: 'DELETE',
@@ -12,6 +16,25 @@ this.Movie = React.createClass({
 
     request.done( () => {
       this.props.handleDeleteMovie(this.props.movie)
+    });
+  },
+
+  handleEdit: function(e) {
+    var data = {
+      title: ReactDOM.findDOMNode(this.refs.title).value,
+      text: ReactDOM.findDOMNode(this.refs.text).value
+    }
+
+    var request = $.ajax({
+      method: "PUT",
+      url: "/movies/" + this.props.movie.id,
+      dataType: "JSON",
+      data: { movie: data }
+    });
+
+    request.done( (data) => {
+      this.setState({ edit:false });
+      this.props.handleEditMovie(this.props.movie, data);
     });
   },
 
