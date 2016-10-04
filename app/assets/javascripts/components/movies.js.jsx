@@ -9,6 +9,12 @@ this.Movies = React.createClass({
     return { movies: [] };
   },
 
+  updateMovie: function(movie, data) {
+    index = this.state.movies.indexOf(movie);
+    movies = React.addons.update(this.state.movies, { $splice: [[index, 1, data]] });
+    this.replaceState({ movies: movies });
+  },
+
   addMovie: function(movie) {
     movies = this.state.movies.slice();
     movies.push(movie);
@@ -41,7 +47,7 @@ this.Movies = React.createClass({
           </thead>
           <tbody>
           {items.map(function(movie , i) {
-            return <Movie movie={movie} key={i} handleDeleteMovie={el.deleteMovie} />
+            return <Movie movie={movie} key={i} handleDeleteMovie={el.deleteMovie} handleEditMovie={el.updateMovie} />
           })}
           </tbody>
         </table>
