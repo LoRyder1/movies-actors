@@ -38,6 +38,25 @@ this.Movie = React.createClass({
     });
   },
 
+  movieForm: function() {
+    var propMovie = this.props.movie;
+
+    return (
+      <tr>
+        <td>
+          <input className="form-control" type="text" defaultValue={propMovie.title} ref="title" />
+        </td>
+        <td>
+          <input className="form-control" type="text" defaultValue={propMovie.text} ref="text" />
+        </td>
+        <td>
+          <a className="btn btn default" onClick={this.handleEdit}>Update</a>
+          <a className="btn btn-danger" onClick={this.handleToggle}>Cancle</a>
+        </td>
+      </tr>
+    )
+  },
+
   movieRow: function() {
     var propMovie = this.props.movie;
     return (
@@ -47,6 +66,7 @@ this.Movie = React.createClass({
         </td>
         <td>{propMovie.text}</td>
         <td>
+          <a className="btn btn-default" onClick={this.handleToggle}>Edit</a>
           <a className="btn btn-danger" onClick={this.handleDelete}>Delete</a>
         </td>
       </tr>
@@ -54,6 +74,10 @@ this.Movie = React.createClass({
   },
 
   render: function() {
-    return this.movieRow();
+    if (this.state.edit) {
+      return this.movieForm();
+    } else {
+      return this.movieRow();
+    }
   }
 })
